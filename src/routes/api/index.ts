@@ -6,6 +6,8 @@ import redis from "~/server/cache";
 export const onGet = async (req: RequestEvent) => {
   // can grab env from req.env or process.env
   console.log("redis: onGet", req.url.href, req.env.get("REDIS_PORT"));
+  await redis.set("my-cache-key", new Date().toISOString());
+  console.log("redis: set my-cache-key", await redis.get("my-cache-key"));
   const query = req.query;
   const params = req.params;
   if (params.key) {
