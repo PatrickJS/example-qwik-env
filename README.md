@@ -1,4 +1,4 @@
-# example qwik app
+# example Qwik app with env
 ```
 src/server
 > made up convention for server only code
